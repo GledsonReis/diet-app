@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start: 2021-05-04 00:44:58
+  end: 2021-05-04 00:44:58
+  ideal_weight: 1.5
+  user: one
+
+two:
+  start: 2021-05-04 00:44:58
+  end: 2021-05-04 00:44:58
+  ideal_weight: 1.5
+  user: two

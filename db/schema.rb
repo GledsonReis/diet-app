@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_030213) do
+ActiveRecord::Schema.define(version: 2021_05_04_051746) do
+
+  create_table "diet_items", force: :cascade do |t|
+    t.text "description"
+    t.integer "meal"
+    t.datetime "schedule"
+    t.integer "diet_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["diet_id"], name: "index_diet_items_on_diet_id"
+  end
+
+  create_table "diets", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.float "ideal_weight"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_diets_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -20,8 +40,20 @@ ActiveRecord::Schema.define(version: 2021_05_04_030213) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "height"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weights", force: :cascade do |t|
+    t.float "velue"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_weights_on_user_id"
+  end
+
+  add_foreign_key "diet_items", "diets"
+  add_foreign_key "diets", "users"
+  add_foreign_key "weights", "users"
 end

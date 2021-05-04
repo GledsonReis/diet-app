@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  meal: 1
+  schedule: 2021-05-04 01:16:40
+  diet: one
+
+two:
+  description: MyText
+  meal: 1
+  schedule: 2021-05-04 01:16:40
+  diet: two
