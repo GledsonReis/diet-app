@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_051746) do
+ActiveRecord::Schema.define(version: 2021_05_04_065038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2021_05_04_051746) do
   end
 
   create_table "diets", force: :cascade do |t|
-    t.datetime "start"
-    t.datetime "end"
+    t.datetime "start_at"
+    t.datetime "finish_at"
     t.float "ideal_weight"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
