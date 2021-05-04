@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_05_04_051746) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "diet_items", force: :cascade do |t|
     t.text "description"
     t.integer "meal"
     t.datetime "schedule"
-    t.integer "diet_id", null: false
+    t.bigint "diet_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["diet_id"], name: "index_diet_items_on_diet_id"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_051746) do
     t.datetime "start"
     t.datetime "end"
     t.float "ideal_weight"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_diets_on_user_id"
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_05_04_051746) do
 
   create_table "weights", force: :cascade do |t|
     t.float "velue"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_weights_on_user_id"
