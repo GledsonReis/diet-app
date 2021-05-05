@@ -6,5 +6,9 @@ class User < ApplicationRecord
 
   # ralationships
   has_one :diet, dependent: :destroy
-  has_many :weight, dependent: :destroy
+  has_many :weights, dependent: :destroy
+
+  def current_weight
+    weights.last
+  end
 end

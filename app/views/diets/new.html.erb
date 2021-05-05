@@ -1,0 +1,7 @@
+<%= content_for :page_header do %>
+  <a class="navbar-brand">Nova Dieta</a>
+<% end %> 
+
+<%= render 'form', diet: @diet %>
+
+<%= link_to 'Back', diets_path %>

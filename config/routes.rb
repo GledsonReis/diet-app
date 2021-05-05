@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :diets
   root to: 'home#index'
 
   get '/dashboard', to: 'pages#dashboard'

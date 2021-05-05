@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   end
 
   def diet
+    @dieta = current_user.diet
   end
 end

@@ -1,0 +1,26 @@
+pt-BR:
+  helpers:
+    actions: "Ações"
+    confirm: "Confirma esta operação?"
+    links:
+      attending: "Atendido"
+      waiting_service: "Esperando Atendimento"
+      canceled: "Cancelado"
+      archive: "Arquivar"
+      active: "Ativar"
+      back: "Voltar"
+      cancel: "Cancelar"
+      confirm: "Você tem certeza?"
+      destroy: 'Excluir'
+      new: "Cadastrar"
+      edit: "Editar"
+      show: "Exibir"
+      answer: "Responder"
+      republish: "Republicar"
+    titles:
+      edit: "Editar %{model}"
+      save: "Salvar %{model}"
+      new: "Cadastrar %{model}"
+      add: "Adicionar %{model}"
+      delete: "Excluir %{model}"
+      show: "Exibir %{model}"

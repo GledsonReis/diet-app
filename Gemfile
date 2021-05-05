@@ -34,6 +34,8 @@ gem 'devise'
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms. Read more: https://github.com/heartcombo/simple_form
 gem 'simple_form'
 
+gem 'rails-i18n'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
