@@ -1,6 +1,12 @@
-<h1>Editing Diet</h1>
-
-<%= render 'form', diet: @diet %>
-
-<%= link_to 'Show', @diet %> |
-<%= link_to 'Back', diets_path %>
+<%- model_class = Diet -%>
+<%= content_for :page_header do %>
+  <h4 class="navbar-brand"><%=t '.title', default: [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h4>
+<% end %>
+<div class="card">
+  <div class="card-header card-header-success">
+    <h4><%=t '.title', default: [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h4>
+  </div>
+  <div class="card-body p-4">
+    <%= render partial: 'form', locals: { model_class: model_class } %>
+  </div>
+</div>

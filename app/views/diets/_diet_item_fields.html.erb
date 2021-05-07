@@ -1,0 +1,21 @@
+<div class="nested-fields mt-4 p-4 border">
+  <%= link_to_remove_association f, class: 'btn btn-link btn-sm p-0 my-auto pull-right', data: { toggle: "tooltip", placement: "bottom" }, title: t('.links', default: [:'helpers.links.destroy', 'Destroy']) do %>
+    <span class="fa fa-close text-danger"></span>
+  <% end %>
+  <div class="row justify-content-between">
+    <div class="col-md-12">
+      <div class="form-inline justify-content-between">
+        <%= f.hidden_field :id %>
+        <div class="form-group col-md-4 bmd-form-group">
+          <label for="diet_item_meal" class="bmd-label-static">Meal</label>
+          <%= f.select_without_bootstrap :meal, DietItem.meals_i18n.collect { |s| [s[1], s[0]]}, { wrapper: { class: 'col-4'} }, { class: 'form-control' } %>
+        </div>
+        
+        <%= f.time_field :schedule , as: :time, label: 'Horário', wrapper: { class: "col-md-3" }, class: "col-12", input_html: { class: "form-control" } %>
+      </div>
+      <div class="">
+        <%= f.text_area :description, label: 'Descrição', wrapper: { class: "col-12" }, rows: 3 %>
+      </div>
+    </div>
+  </div>
+</div>

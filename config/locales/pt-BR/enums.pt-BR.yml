@@ -1,0 +1,10 @@
+pt-BR:
+  enums:
+    diet_item:
+      meal:
+        breakfast: Café da manhã
+        lunch: Almoço
+        dessert: Sobremesa
+        snack: Lanche
+        dinner: Jantar
+        supper: Ceia

@@ -34,7 +34,14 @@ gem 'devise'
 # Simple Form aims to be as flexible as possible while helping you with powerful components to create your forms. Read more: https://github.com/heartcombo/simple_form
 gem 'simple_form'
 
-gem 'rails-i18n'
+# https://github.com/zmbacker/enum_help
+gem 'enum_help'
+
+# https://github.com/bootstrap-ruby/bootstrap_form
+gem "bootstrap_form", "~> 4.0"
+
+# https://github.com/nathanvda/cocoon
+gem 'cocoon', '1.2.14'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

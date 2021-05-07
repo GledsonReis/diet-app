@@ -3,10 +3,7 @@ pt-BR:
     actions: "Ações"
     confirm: "Confirma esta operação?"
     links:
-      attending: "Atendido"
-      waiting_service: "Esperando Atendimento"
       canceled: "Cancelado"
-      archive: "Arquivar"
       active: "Ativar"
       back: "Voltar"
       cancel: "Cancelar"
@@ -15,8 +12,6 @@ pt-BR:
       new: "Cadastrar"
       edit: "Editar"
       show: "Exibir"
-      answer: "Responder"
-      republish: "Republicar"
     titles:
       edit: "Editar %{model}"
       save: "Salvar %{model}"

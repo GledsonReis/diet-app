@@ -1,0 +1,38 @@
+pt-BR:
+  activerecord:
+    models:
+      diet_item:
+        one: Item da dieta
+        other: items da dieta
+      diet: Dieta
+      user: Usuário
+      weight: Peso
+
+    attributes:
+      default_attributes: &default_attributes
+        created_at: Cadastrado em
+        updated_at: Atualizado em
+
+      diet_items:
+        <<: *default_attributes
+        description: Descrição
+        schedule: Horário
+        meal: Refeição
+
+      diet:
+        <<: *default_attributes
+        start_at: Início
+        finish_at: Fim
+        ideal_weight: Peso ideal
+
+      user:
+        <<: *default_attributes
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme a senha
+        current_password: Senha atual
+        remember_me: Lembrar senha
+
+      weight:
+        <<: *default_attributes
+        value: Valor

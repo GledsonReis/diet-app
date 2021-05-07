@@ -1,30 +1,21 @@
+<%- model_class = Diet -%>
 <%= content_for :page_header do %>
-  <a class="navbar-brand" href="javascript:;">Dieta</a>
+  <h2 class="navbar-brand"><%=t '.title', default: model_class.model_name.human.titleize %></h2>
 <% end %>
 
+
 <div class="row">
   <div class="card">
     <div class="card-header card-header-primary">
-      Dieta
+      <h4 class="mb-0">Informações pessoais</h4>
     </div>
     <div class="card-body">
       <div class="row">
         <div class="col-6">
-          <p><strong>Início:</strong> <%= l @dieta.start_at %></p>
-          <p><strong>Peso ideal:</strong> <%= number_with_precision(@dieta.ideal_weight, precision: 1) %>kg</p>
+          <p><strong>Peso atual:</strong> <%= current_user.current_weight %></p>
         </div>
-        <div class="col-6">
-          <p><strong>Fim:</strong> <%= l @dieta.finish_at %></p>
-        </div>
-      </div>
-      <hr>
-      <h4 class="card-title">Informações pessoais</h4>
-      <div class="row">
         <div class="col-6">
           <p><strong>Altura:</strong> <%= current_user.height %></p>
-        </div>
-        <div class="col-6">
-          <p><strong>Peso atual:</strong> <%= current_user.current_weight %></p>
         </div>
       </div>
     </div>
@@ -33,29 +24,55 @@
 
 <div class="row">
   <div class="card">
-    <div class="card-header card-header-primary">
-      Items da dieta
+    <div class="card-header card-header-primary d-flex justify-content-between">
+      <h4 class="mb-0">Dieta</h4>
+      <%= link_to edit_diet_path(@diet), class: 'btn btn-link text-white btn-sm p-0',
+        data: { toggle: "tooltip", placement: "bottom" }, title: t('.links', default: [:'helpers.links.edit', 'Edit']) do %>
+        <i class="material-icons">edit</i>
+      <% end %>
     </div>
     <div class="card-body">
-      <div class="row">
-        <div class="col-6">
-          <p><strong>Início:</strong> <%= l @dieta.start_at %></p>
-          <p><strong>Peso ideal:</strong> <%= number_with_precision(@dieta.ideal_weight, precision: 1) %>kg</p>
+      <% if @diet.present? %>
+        <div class="row">
+          <div class="col-6">
+            <p><strong>Início:</strong> <%= l(@diet.start_at, format: :date_only) %></p>
+            <p><strong>Peso ideal:</strong> <%= number_with_precision(@diet.ideal_weight, precision: 1) %>kg</p>
+          </div>
+          <div class="col-6">
+            <p><strong>Fim:</strong> <%= l(@diet.finish_at, format: :date_only) %></p>
+          </div>
         </div>
-        <div class="col-6">
-          <p><strong>Fim:</strong> <%= l @dieta.finish_at %></p>
-        </div>
-      </div>
-      <hr>
-      <h4 class="card-title">Informações pessoais</h4>
-      <div class="row">
-        <div class="col-6">
-          <p><strong>Altura:</strong> <%= current_user.height %></p>
-        </div>
-        <div class="col-6">
-          <p><strong>Peso atual:</strong> <%= current_user.current_weight %></p>
-        </div>
-      </div>
+      <% else %>
+        <%= link_to new_diet_path, class: 'btn btn-sm btn-outline-primary' do %>
+          <%=t '.title', default: [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>
+
+<% if @diet.present?%>
+  <div class="row">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="mb-0">Items da dieta</h4>
+      </div>
+      <div class="card-body">
+        <% @diet.diet_items.order(:schedule).each do |item| %>
+          <div class="d-flex justify-content-between border-bottom">
+            <h5><%= DietItem.meals_i18n[item.meal] %></h5>
+            <h5><%= l(item.schedule, format: :hour_only) %></h5>
+          </div>
+          <div class="card mt-2">
+            <div class="card-body">
+              <p><%= simple_format(item.description) %></p>
+            </div>
+          </div>
+        <% end %>
+        <!-- <%#= link_to new_diet_diet_item_path(@diet), class: 'btn btn-sm btn-outline-primary' do %>
+          Adicionar novo item
+        <%# end %> -->
+      </div>
+    </div>
+  </div>
+<% end %>
