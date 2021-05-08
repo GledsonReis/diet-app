@@ -33,7 +33,7 @@
       <%= link_to edit_authed_diet_path(@diet), class: 'btn btn-link text-white btn-sm p-0',
         data: { toggle: "tooltip", placement: "bottom" }, title: t('.links', default: [:'helpers.links.edit', 'Edit']) do %>
         <i class="material-icons">edit</i>
-      <% end %>
+      <% end if @diet.present? %>
     </div>
     <div class="card-body">
       <% if @diet.present? %>
@@ -47,7 +47,7 @@
           </div>
         </div>
       <% else %>
-        <%= link_to new_diet_path, class: 'btn btn-sm btn-outline-primary' do %>
+        <%= link_to new_authed_diet_path, class: 'btn btn-sm btn-outline-primary' do %>
           <%=t '.title', default: [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %>
         <% end %>
       <% end %>

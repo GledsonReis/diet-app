@@ -17,7 +17,7 @@ module Authed
 
       respond_to do |format|
         if @diet.save
-          format.html { redirect_to dieta_path, notice: 'Diet was successfully created.' }
+          format.html { redirect_to authed_dieta_path, notice: 'Diet was successfully created.' }
         else
           format.html { render :new, status: :unprocessable_entity }
         end
@@ -28,7 +28,7 @@ module Authed
     def update
       respond_to do |format|
         if @diet.update(diet_params)
-          format.html { redirect_to dieta_path, notice: 'Diet was successfully updated.' }
+          format.html { redirect_to authed_dieta_path, notice: 'Diet was successfully updated.' }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end

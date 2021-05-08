@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import Chart from 'chart.js';
 
 require("jquery")
 require("@nathanvda/cocoon")
@@ -18,3 +19,28 @@ ActiveStorage.start()
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+$(document).ready(function () {
+  let chart = document.getElementById('weightChart');
+  let data = JSON.parse($(chart).attr("data"));
+  let weightChart = new Chart(chart, {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+      },
+      scales: {
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'kg'
+          }
+        }]
+      }
+    },
+  });  
+});

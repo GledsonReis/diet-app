@@ -1,3 +1,13 @@
 <%= content_for :page_header do %>
   <a class="navbar-brand" href="javascript:;">Dashboard</a>
 <% end %>
+<div class="card">
+  <div class="card-header card-header-primary">
+    <h4 class="mb-0">
+      Dashboard
+    </h4>
+  </div>
+  <div class="card-body">
+    <canvas id="weightChart" data=<%= @data.to_json %>></canvas>
+  </div>
+</div>

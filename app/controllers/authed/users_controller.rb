@@ -5,14 +5,14 @@ module Authed
     # GET /users/1/edit
     def edit
       @user = current_user
-      current_user.weights.build unless current_user.weights.present?
+      @user.weights.build unless @user.weights.present?
     end
 
     # PATCH/PUT /users/1 or /users/1.json
     def update
       respond_to do |format|
         if @user.update(user_params)
-          format.html { redirect_to dieta_path, notice: 'User was successfully updated.' }
+          format.html { redirect_to authed_dieta_path, notice: 'User was successfully updated.' }
         else
           format.html { render :edit, status: :unprocessable_entity }
         end
