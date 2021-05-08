@@ -1,5 +1,6 @@
 module Authed
   class UsersController < AuthedController
+    load_and_authorize_resource
     before_action :set_user, only: %i[update]
 
     # GET /users/1/edit

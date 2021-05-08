@@ -1,5 +1,6 @@
 module Authed
   class DietsController < AuthedController
+    load_and_authorize_resource
     before_action :set_diet, only: %i[edit update]
 
     # GET /diets/new

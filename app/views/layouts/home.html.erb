@@ -5,6 +5,7 @@
     <title>DietApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="material-dashboard-master/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="material-dashboard-master/assets/img/favicon.png">
@@ -69,6 +70,9 @@
         </div>
       </div>
     </div>
+
+    <%= javascript_pack_tag 'application' %>
+    <%= toastr_flash %>
     <!--   Core JS Files   -->
     <script src="material-dashboard-master/assets/js/core/jquery.min.js"></script>
     <script src="material-dashboard-master/assets/js/core/popper.min.js"></script>
