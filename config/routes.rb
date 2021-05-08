@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :users, only: [:edit, :update]
   resources :diets
   root to: 'home#index'
 
+  get '/infos', to: 'users#edit', as: :edit_info
   get '/dashboard', to: 'pages#dashboard'
   get '/dieta', to: 'pages#diet'
 

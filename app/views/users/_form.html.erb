@@ -1,0 +1,30 @@
+<%= bootstrap_form_for(@user) do |f| %>
+
+  <div class="form-inputs p-2">
+    <div class="d-flex flex-wrap mb-2">
+      <div class="form-group col-md-12 bmd-form-group is-filled">
+        <label for="user_height" class="bmd-label-static"><%= model_class.human_attribute_name(:height) -%></label>
+        <div class="input-group mb-2 mr-sm-2">
+          <input input_html="class form-control" class="form-control" type="number" value=<%= @user.height %> name="user[height]" id="user_height">
+          <div class="input-group-prepend">
+            <div class="input-group-text">cm</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-12 bmd-form-group is-filled">
+        <label for="user_weights_attributes_0_value" class="bmd-label-static"><%= model_class.human_attribute_name(:current_weight) -%></label>
+        <div class="input-group mb-2 mr-sm-2">
+          <input step="0.01" input_html="class form-control" class="form-control" min="1.0" max="200.0" type="number" value=<%= @user.current_weight %> name="user[weights_attributes][0][value]" id="user_weights_attributes_0_value">
+          <div class="input-group-prepend">
+            <div class="input-group-text">kg</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="border-bottom mx-2"></div>
+  <div class="form-actions d-flex justify-content-end p-2">
+    <%= f.button :submit, class: 'btn btn-success' %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<%- model_class = User -%>
+<%= content_for :page_header do %>
+  <h4 class="navbar-brand"><%=t '.title', default: [:'helpers.titles.edit', 'Edit %{model}'], :model => t("custom.titles.user_info") %></h4>
+<% end %>
+<div class="card mx-auto col-md-6">
+  <div class="card-header card-header-success">
+    <h4><%=t '.title', default: [:'helpers.titles.edit', 'Edit %{model}'], :model => t("custom.titles.user_info") %></h4>
+  </div>
+  <div class="card-body p-4">
+    <%= render partial: 'form', locals: { model_class: model_class }%>
+  </div>
+</div>

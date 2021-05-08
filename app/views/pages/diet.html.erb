@@ -6,16 +6,20 @@
 
 <div class="row">
   <div class="card">
-    <div class="card-header card-header-primary">
-      <h4 class="mb-0">Informações pessoais</h4>
+    <div class="card-header card-header-primary d-flex justify-content-between">
+      <h4 class="mb-0"><%= t("custom.titles.user_info") %></h4>
+      <%= link_to edit_info_path, class: 'btn btn-link text-white btn-sm p-0',
+        data: { toggle: "tooltip", placement: "bottom" }, title: t('.links', default: [:'helpers.links.edit', 'Edit']) do %>
+        <i class="material-icons">edit</i>
+      <% end %>
     </div>
     <div class="card-body">
       <div class="row">
         <div class="col-6">
-          <p><strong>Peso atual:</strong> <%= current_user.current_weight %></p>
+          <p><strong><%= User.human_attribute_name(:current_weight) -%></strong> <%= current_user.current_weight %></p>
         </div>
         <div class="col-6">
-          <p><strong>Altura:</strong> <%= current_user.height %></p>
+          <p><strong><%= User.human_attribute_name(:height) -%></strong> <%= current_user.height %></p>
         </div>
       </div>
     </div>
@@ -25,7 +29,7 @@
 <div class="row">
   <div class="card">
     <div class="card-header card-header-primary d-flex justify-content-between">
-      <h4 class="mb-0">Dieta</h4>
+      <h4 class="mb-0"><%= model_class.model_name.human.titleize %></h4>
       <%= link_to edit_diet_path(@diet), class: 'btn btn-link text-white btn-sm p-0',
         data: { toggle: "tooltip", placement: "bottom" }, title: t('.links', default: [:'helpers.links.edit', 'Edit']) do %>
         <i class="material-icons">edit</i>
@@ -35,11 +39,11 @@
       <% if @diet.present? %>
         <div class="row">
           <div class="col-6">
-            <p><strong>Início:</strong> <%= l(@diet.start_at, format: :date_only) %></p>
-            <p><strong>Peso ideal:</strong> <%= number_with_precision(@diet.ideal_weight, precision: 1) %>kg</p>
+            <p><strong><%= model_class.human_attribute_name(:start_at) -%></strong> <%= l(@diet.start_at, format: :date_only) %></p>
+            <p><strong><%= model_class.human_attribute_name(:ideal_weight) -%></strong> <%= number_with_precision(@diet.ideal_weight, precision: 1) %>kg</p>
           </div>
           <div class="col-6">
-            <p><strong>Fim:</strong> <%= l(@diet.finish_at, format: :date_only) %></p>
+            <p><strong><%= model_class.human_attribute_name(:finish_at) -%></strong> <%= l(@diet.finish_at, format: :date_only) %></p>
           </div>
         </div>
       <% else %>
@@ -55,7 +59,7 @@
   <div class="row">
     <div class="card">
       <div class="card-header card-header-primary">
-        <h4 class="mb-0">Items da dieta</h4>
+        <h4 class="mb-0"><%= DietItem.model_name.human(count: 2) %></h4>
       </div>
       <div class="card-body">
         <% @diet.diet_items.order(:schedule).each do |item| %>
