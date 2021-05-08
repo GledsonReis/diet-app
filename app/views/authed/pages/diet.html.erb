@@ -8,7 +8,7 @@
   <div class="card">
     <div class="card-header card-header-primary d-flex justify-content-between">
       <h4 class="mb-0"><%= t("custom.titles.user_info") %></h4>
-      <%= link_to edit_info_path, class: 'btn btn-link text-white btn-sm p-0',
+      <%= link_to authed_edit_info_path, class: 'btn btn-link text-white btn-sm p-0',
         data: { toggle: "tooltip", placement: "bottom" }, title: t('.links', default: [:'helpers.links.edit', 'Edit']) do %>
         <i class="material-icons">edit</i>
       <% end %>
@@ -30,7 +30,7 @@
   <div class="card">
     <div class="card-header card-header-primary d-flex justify-content-between">
       <h4 class="mb-0"><%= model_class.model_name.human.titleize %></h4>
-      <%= link_to edit_diet_path(@diet), class: 'btn btn-link text-white btn-sm p-0',
+      <%= link_to edit_authed_diet_path(@diet), class: 'btn btn-link text-white btn-sm p-0',
         data: { toggle: "tooltip", placement: "bottom" }, title: t('.links', default: [:'helpers.links.edit', 'Edit']) do %>
         <i class="material-icons">edit</i>
       <% end %>

@@ -13,7 +13,7 @@
     <% @diets.each do |diet| %>
       <tr>
         <td><%= link_to 'Show', diet %></td>
-        <td><%= link_to 'Edit', edit_diet_path(diet) %></td>
+        <td><%= link_to 'Edit', edit_authed_diet_path(diet) %></td>
         <td><%= link_to 'Destroy', diet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
